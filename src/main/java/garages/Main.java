@@ -1,3 +1,4 @@
+
 package garages;
 
 public class Main {
@@ -15,3 +16,5 @@ public class Main {
 	}
 
 }
+
+
