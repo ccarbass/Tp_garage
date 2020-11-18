@@ -44,7 +44,7 @@ public class Voiture {
 	 */
 	public void sortDuGarage() throws Exception {
 		if (estDansUnGarage()) {
-			myStationnements.get(-1).terminer();
+			myStationnements.get(myStationnements.size() - 1).terminer();
 		} else {
 			throw new Exception("la voiture n'est pas dans un garage");
 		}
@@ -66,11 +66,15 @@ public class Voiture {
 	 * @return vrai si la voiture est dans un garage, faux sinon
 	 */
 	public boolean estDansUnGarage() {
-		Stationnement g = this.myStationnements.get(myStationnements.size() - 1);
-		if(g.estEnCours()==true){
-			return true;
+		int size = myStationnements.size();
+		if(size == 0){
+			return false;
 		}
 		else {
+			Stationnement s = myStationnements.get(size-1);
+			if(s.estEnCours()){
+				return true;
+			}
 			return false;
 		}
 		// Vrai si le dernier stationnement est en cours
